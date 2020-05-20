@@ -1,0 +1,20 @@
+ARG IMAGE_VERSION=14
+FROM node:${IMAGE_VERSION}-alpine
+
+RUN apk update && apk add --no-cache git
+
+RUN yarn global add @swarthy/wait-for@2.0.3 && \
+    yarn cache clean
+
+COPY aliases.sh /etc/profile.d/aliases.sh
+
+WORKDIR /app
+
+RUN mkdir -p /yarn-cache && \
+    chown -R node:node /yarn-cache
+
+USER node
+
+ENV YARN_CACHE_FOLDER="/yarn-cache"
+
+CMD ["yarn", "run", "dev"]
