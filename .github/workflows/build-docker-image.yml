@@ -23,5 +23,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: swarthy/node-dev
           build_args: IMAGE_VERSION=14
-          dockerfile: '{path}/Dockerfile-alpine'
+          dockerfile: Dockerfile-alpine
           tags: 14-alpine
