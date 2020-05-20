@@ -1,4 +1,5 @@
 ARG IMAGE_VERSION
+
 FROM node:${IMAGE_VERSION}
 
 RUN yarn global add @swarthy/wait-for@2.0.3 && \
