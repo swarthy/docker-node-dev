@@ -6,6 +6,8 @@ jobs:
     name: Build Docker image with base node image
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Build base node image
         uses: docker/build-push-action@v1
         with:
